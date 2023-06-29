@@ -1,0 +1,21 @@
+<p>card works!</p>
+
+<p> Il y a {{numberOfPokemon}} pokemons dans le pokedex</p>
+<p>Le premier pokemon : {{somePokemon.name}} </p>
+
+<button (click)="displayPokemon()">Afficher pokemons</button>
+<p *ngFor="let pokemon of pokemons"> 
+  {{pokemon.name}} 
+</p>
+
+make an input search which set variable "inputPokemon" to the value of the input
+
+<p #inputData> This is a search input </p>
+
+<!-- <input (click)="inputData.focus()" name="search" type="text" placeholder="Search..." [(ngModel)]="inputPokemon"> -->
+
+<div class="card" *ngFor="let pokemon of search">
+<h2>{{pokemon.name}}</h2>
+  <p>{{pokemon.type }}</p>
+    <p>{{pokemon.hp }}</p>
+</div> 

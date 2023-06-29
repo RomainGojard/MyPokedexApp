@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pokedex';
+  public title : string = 'pokedex';
+
+  ngOnInit() {
+    this.title = 'pokedex';
+  }
+  
 }
