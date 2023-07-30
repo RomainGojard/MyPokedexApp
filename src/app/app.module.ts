@@ -8,13 +8,19 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { numberOfAttacksPipe } from './numberOfAttacksPipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AddUpCaseToFirstLetterPipe } from './AddUpCaseToFirstLetterPipe';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     PokemonListComponent,
-    numberOfAttacksPipe
+    numberOfAttacksPipe,
+    AddUpCaseToFirstLetterPipe,
+    PokemonComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +29,9 @@ import { numberOfAttacksPipe } from './numberOfAttacksPipe';
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

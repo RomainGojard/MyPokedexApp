@@ -1,25 +1,49 @@
 .pokemon-grid {
     display: grid;
-    grid-gap: 16px;
-    padding: 20px;
+    grid-gap: 1rem;
+    padding: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
     justify-content: center;
 }
 
-.hooverBox {
-    background-color: rgba(240, 180, 180, 0.5);
-    height: 15rem;
-    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
-    position: relative;
+.card-pokemon{
+    height: 20rem;
     overflow: hidden;
 }
 
+.hooverBox {
+    
+    
+}
+
+
 .pokemon-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: rgba(240, 180, 180, 0.5);
+    transition: transform 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+.pokemon-content:hover {
+    background-color: rgba(240, 180, 180, 0.8);
+    transform: scale(1.03);
+}
+
+
+.pokemon-image {
+    background-color: #fff;
+    width: auto;
+    height:  auto;
+    border-radius: 50%;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
 }
 
 .pokemon-name {
@@ -28,18 +52,56 @@
     margin-bottom: 5px;
 }
 
-.hooverBox p {
-    font-size: 1.2rem;
+.pokemon-details {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hooverBox img {
-    width: 70%;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
+.pokemon-height,
+.pokemon-weight,
+.pokemon-types,
+.pokemon-type {
+    display: inline-block;
+    margin-right: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px 5px;
+    border-radius: 5px;
 }
 
-.hooverBox:hover img {
-    transform: scale(1.7);
+.pokemon-type {
+    color: #fff;
+    background-color: #333;
 }
+
+pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+
+.favorite-icon{
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+}
+
+.heart-icon {
+    font-size: 8rem;
+    cursor: pointer;
+  }
+
+/* Coeur plein */
+.heart-icon.fa-heart {
+    color: red;
+  }
+  
+  /* Coeur vide */
+  .heart-icon.fa-heart-o {
+    color: white;
+    border: 1px solid black;
+  }
+  

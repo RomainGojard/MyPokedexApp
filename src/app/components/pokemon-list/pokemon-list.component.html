@@ -1,10 +1,57 @@
 <div class="pokemon-grid">
-    <div class="hooverBox" *ngFor="let pokemon of pokemons">
-        <div class="pokemon-content">
-            <p class="pokemon-name">{{pokemon.name}}</p>
-            <br>
-            <!-- <p>{{pokemon | numberOfAttacksPipe}}</p> -->
-            <img src="{{pokemon.sprites.front_default}}" alt="">
+    <div class="card-pokemon"
+      *ngFor="let pokemon of pokemons
+          | paginate
+            : {
+                itemsPerPage: NUMBER_OF_POKEMONS_PER_PAGE,
+                currentPage: page,
+                totalItems: totalPokemons
+              }">
+      <div class="pokemon-content">
+        <div class="pokemon-div-image" (click)="goToDetail(pokemon.id)">
+          <img
+            class="pokemon-image"
+            src="{{ pokemon.sprites.front_default }}"
+            alt="Pokemon {{ pokemon.name }}"
+          />
+        </div>
+  
+        <p class="pokemon-name" (click)="goToDetail(pokemon.id)">
+          {{ pokemon.name | AddUpCaseToFirstLetterPipe }}
+        </p>
+  
+        <div class="pokemon-details">
+          <p class="pokemon-height" (click)="goToDetail(pokemon.id)">
+            Height: {{ pokemon.height | AddUpCaseToFirstLetterPipe }}
+          </p>
+          <p class="pokemon-weight" (click)="goToDetail(pokemon.id)">
+            Weight: {{ pokemon.weight | AddUpCaseToFirstLetterPipe }}
+          </p>
+          <br />
+          <p class="pokemon-types" (click)="goToDetail(pokemon.id)">
+            Types:
+            <span *ngFor="let type of pokemon.types" class="pokemon-type">
+              {{ type.type.name | AddUpCaseToFirstLetterPipe }}
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="favorite-icon" (click)="toggleFavorite(pokemon)">
+          <fa-icon
+            *ngIf="favPokemons.includes(pokemon)"
+            [icon]="faHeart"
+            class="heart-icon"
+          ></fa-icon>
+          <fa-icon
+            *ngIf="!favPokemons.includes(pokemon)"
+            [icon]="farHeart"
+            class="heart-icon"
+          ></fa-icon>
         </div>
     </div>
-</div>
+  </div>
+  
+  <pagination-controls
+    (pageChange)="page = $event; pokemons = []; getPokemons()"
+  ></pagination-controls>
+  
